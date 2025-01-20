@@ -6,8 +6,8 @@ This is a temporary script file.
 """
 from frechet_audio_distance import FrechetAudioDistance
 
-background_embds_path = "C:/Users/markm/FAD/BGEmb/"
-eval_embds_path = "C:/Users/markm/FAD/EVALEmb/"
+background_embds_path = "C:/path/to/bg_emb.npy"
+eval_embds_path = "C:/path/to/eval_emb.npy"
 
 frechet = FrechetAudioDistance(
     model_name="encodec",
@@ -17,8 +17,10 @@ frechet = FrechetAudioDistance(
 )
 
 fad_score = frechet.score(
-    "C:/Users/markm/FAD/DataSet/",
-    "C:/Users/markm/FAD/EvalSet/",
+    "C:/path/to/bg_data",
+    "C:/path/to/eval_data",
+    background_embds_path=background_embds_path,
+    eval_embds_path=eval_embds_path,
     dtype="float32"
 )
 
